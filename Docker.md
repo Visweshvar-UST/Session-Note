@@ -13,7 +13,8 @@
 </code></pre>
 <pre><code>docker run
 </code></pre>
-<pre><code>docker --version
+<pre><code>docker pull &lt;image-name&gt;
+docker pull hello-world
 </code></pre>
 <pre><code>docker --version
 </code></pre>
