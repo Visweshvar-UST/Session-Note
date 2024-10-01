@@ -11,12 +11,16 @@
 </code></pre>
 <pre><code>docker ps -a
 </code></pre>
-<pre><code>docker run
+<pre><code>docker run &lt;image-name&gt;
 </code></pre>
 <pre><code>docker pull &lt;image-name&gt;
 docker pull hello-world
 </code></pre>
-<pre><code>docker --version
+<pre><code>docker run hello-world
+</code></pre>
+<pre><code>docker --help
+docker &lt;command&gt; --help
+docker pull --help
 </code></pre>
 <blockquote>
 <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
