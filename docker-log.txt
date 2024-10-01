@@ -1,0 +1,253 @@
+
+Microsoft Windows [Version 10.0.19045.4894]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Administrator>docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+dafa2b0c44d2: Pull complete
+Digest: sha256:dfc10878be8d8fc9c61cbff33166cb1d1fe44391539243703c72766894fa834a
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview ubuntu
+
+C:\Users\Administrator>docker images
+REPOSITORY                                TAG                                                                           IMAGE ID       CREATED         SIZE
+rabbitmq                                  3-management                                                                  4ce498671433   10 days ago     251MB
+ubuntu                                    latest                                                                        b1e9cef3f297   4 weeks ago     78.1MB
+docker/desktop-kubernetes                 kubernetes-v1.29.2-cni-v1.4.0-critools-v1.29.0-cri-dockerd-v0.3.11-1-debian   15340d8e9882   6 months ago    439MB
+registry.k8s.io/kube-apiserver            v1.29.2                                                                       8a9000f98a52   7 months ago    127MB
+registry.k8s.io/kube-scheduler            v1.29.2                                                                       6fc5e6b7218c   7 months ago    59.5MB
+registry.k8s.io/kube-controller-manager   v1.29.2                                                                       138fb5a3a2e3   7 months ago    122MB
+registry.k8s.io/kube-proxy                v1.29.2                                                                       9344fce2372f   7 months ago    82.3MB
+registry.k8s.io/etcd                      3.5.10-0                                                                      a0eed15eed44   11 months ago   148MB
+registry.k8s.io/coredns/coredns           v1.11.1                                                                       cbb01a7bd410   13 months ago   59.8MB
+docker/desktop-vpnkit-controller          dc331cb22850be0cdd97c84a9cfecaf44a1afb6e                                      556098075b3d   16 months ago   36.2MB
+hello-world                               latest                                                                        d2c94e258dcb   17 months ago   13.3kB
+registry.k8s.io/pause                     3.9                                                                           e6f181688397   23 months ago   744kB
+docker/desktop-storage-provisioner        v2.0                                                                          99f89471f470   3 years ago     41.9MB
+
+C:\Users\Administrator>docker run -it ubuntu
+root@7b7c0cfeeba7:/#
+root@7b7c0cfeeba7:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@7b7c0cfeeba7:/# exit
+exit
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED              STATUS                        PORTS                                                                                                         NAMES
+7b7c0cfeeba7   ubuntu                  "/bin/bash"              About a minute ago   Exited (0) 19 seconds ago                                                                                                                   charming_agnesi
+c8fbd11a11b4   hello-world             "/hello"                 47 minutes ago       Exited (0) 47 minutes ago                                                                                                                   xenodochial_jepsen
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   6 hours ago          Exited (255) 54 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
+
+C:\Users\Administrator>docker rm c8fbd11a11b4
+c8fbd11a11b4
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED         STATUS                        PORTS                                                                                                         NAMES
+7b7c0cfeeba7   ubuntu                  "/bin/bash"              2 minutes ago   Exited (0) 40 seconds ago                                                                                                                   charming_agnesi
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   6 hours ago     Exited (255) 55 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED         STATUS                        PORTS                                                                                                         NAMES
+7b7c0cfeeba7   ubuntu                  "/bin/bash"              2 minutes ago   Exited (0) 53 seconds ago                                                                                                                   charming_agnesi
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   6 hours ago     Exited (255) 55 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
+
+C:\Users\Administrator>docker rm
+
+C:\Users\Administrator>docker rm 7b7c0cfeeba7
+7b7c0cfeeba7
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED       STATUS                        PORTS                                                                                                         NAMES
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   6 hours ago   Exited (255) 55 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Microsoft Windows [Version 10.0.19045.4894]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Administrator>docker --version
+Docker version 26.1.4, build 5650f9b
+
+C:\Users\Administrator>docker images
+REPOSITORY                                TAG                                                                           IMAGE ID       CREATED         SIZE
+rabbitmq                                  3-management                                                                  4ce498671433   10 days ago     251MB
+docker/desktop-kubernetes                 kubernetes-v1.29.2-cni-v1.4.0-critools-v1.29.0-cri-dockerd-v0.3.11-1-debian   15340d8e9882   6 months ago    439MB
+registry.k8s.io/kube-apiserver            v1.29.2                                                                       8a9000f98a52   7 months ago    127MB
+registry.k8s.io/kube-proxy                v1.29.2                                                                       9344fce2372f   7 months ago    82.3MB
+registry.k8s.io/kube-scheduler            v1.29.2                                                                       6fc5e6b7218c   7 months ago    59.5MB
+registry.k8s.io/kube-controller-manager   v1.29.2                                                                       138fb5a3a2e3   7 months ago    122MB
+registry.k8s.io/etcd                      3.5.10-0                                                                      a0eed15eed44   11 months ago   148MB
+registry.k8s.io/coredns/coredns           v1.11.1                                                                       cbb01a7bd410   13 months ago   59.8MB
+docker/desktop-vpnkit-controller          dc331cb22850be0cdd97c84a9cfecaf44a1afb6e                                      556098075b3d   16 months ago   36.2MB
+registry.k8s.io/pause                     3.9                                                                           e6f181688397   23 months ago   744kB
+docker/desktop-storage-provisioner        v2.0                                                                          99f89471f470   3 years ago     41.9MB
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED       STATUS                       PORTS                                                                                                         NAMES
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   5 hours ago   Exited (255) 3 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
+
+C:\Users\Administrator>docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world
+c1ec31eb5944: Pull complete
+Digest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview hello-world
+
+C:\Users\Administrator>docker images
+REPOSITORY                                TAG                                                                           IMAGE ID       CREATED         SIZE
+rabbitmq                                  3-management                                                                  4ce498671433   10 days ago     251MB
+docker/desktop-kubernetes                 kubernetes-v1.29.2-cni-v1.4.0-critools-v1.29.0-cri-dockerd-v0.3.11-1-debian   15340d8e9882   6 months ago    439MB
+registry.k8s.io/kube-apiserver            v1.29.2                                                                       8a9000f98a52   7 months ago    127MB
+registry.k8s.io/kube-scheduler            v1.29.2                                                                       6fc5e6b7218c   7 months ago    59.5MB
+registry.k8s.io/kube-proxy                v1.29.2                                                                       9344fce2372f   7 months ago    82.3MB
+registry.k8s.io/kube-controller-manager   v1.29.2                                                                       138fb5a3a2e3   7 months ago    122MB
+registry.k8s.io/etcd                      3.5.10-0                                                                      a0eed15eed44   11 months ago   148MB
+registry.k8s.io/coredns/coredns           v1.11.1                                                                       cbb01a7bd410   13 months ago   59.8MB
+docker/desktop-vpnkit-controller          dc331cb22850be0cdd97c84a9cfecaf44a1afb6e                                      556098075b3d   16 months ago   36.2MB
+hello-world                               latest                                                                        d2c94e258dcb   17 months ago   13.3kB
+registry.k8s.io/pause                     3.9                                                                           e6f181688397   23 months ago   744kB
+docker/desktop-storage-provisioner        v2.0                                                                          99f89471f470   3 years ago     41.9MB
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED       STATUS                       PORTS                                                                                                         NAMES
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   5 hours ago   Exited (255) 6 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
+
+C:\Users\Administrator>docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS                       PORTS                                                                                                         NAMES
+c8fbd11a11b4   hello-world             "/hello"                 11 seconds ago   Exited (0) 9 seconds ago                                                                                                                   xenodochial_jepsen
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   5 hours ago      Exited (255) 7 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
+
+C:\Users\Administrator>docker --help
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  debug*      Get a shell into any image or container
+  dev*        Docker Dev Environments
+  extension*  Manages Docker extensions
+  feedback*   Provide feedback, right in your terminal!
+  image       Manage images
+  init*       Creates Docker-related starter files for your project
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  sbom*       View the packaged-based Software Bill Of Materials (SBOM) for an image
+  scout*      Docker Scout
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\Administrator\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\Administrator\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\Administrator\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\Administrator\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+
+C:\Users\Administrator>docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS                        PORTS                                                                                                         NAMES
+c8fbd11a11b4   hello-world             "/hello"                 33 minutes ago   Exited (0) 33 minutes ago                                                                                                                   xenodochial_jepsen
+9cbe8bffd0ee   rabbitmq:3-management   "docker-entrypoint.s…"   6 hours ago      Exited (255) 40 minutes ago   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp   some-rabbit
